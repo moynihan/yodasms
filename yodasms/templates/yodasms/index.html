@@ -1,0 +1,29 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+    <title>Yoda SMS</title>
+    {% include "yodasms/head.html" %}
+</head>
+<body class="index-body">
+<div>
+    <div class="jumbotron" id="loginbox">
+        <div>
+            <div>
+                <div class="title"><h1>Yoda SMS</h1></div>
+                <p>Send messages from Yoda</p>
+            </div>
+        </div>
+        <form method="post" id="form">{% csrf_token %}
+            <h2>Type a message and translate it to Yoda, then send it</h2>
+            <div class="input-group">
+                <input type="text" class="form-control" id="message" name="message" placeholder="Your message">
+                <span class="btn input-group-addon btn-green" id="translate-btn" onclick="$('#form').submit()">Translate</span>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

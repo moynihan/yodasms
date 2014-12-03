@@ -1,0 +1,30 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+    <title>Yoda SMS</title>
+    {% include "yodasms/head.html" %}
+</head>
+<body class="send-body">
+<div>
+    <div class="jumbotron" id="loginbox">
+        <div>
+            <div>
+                <div class="title"><h2>Your message is ready to send</h2></div>
+                <p>{{ response.body }}</p>
+            </div>
+        </div>
+        <form method="post" id="form">{% csrf_token %}
+            <h3>Who do you want to send this message to?</h3>
+            <input type="text" class="form-control" name="message" style="display:none;" value="{{ response.body }}">
+            <div class="input-group">
+                <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number ex: 1231231234">
+                <span class="btn input-group-addon btn-green" id="translate-btn" onclick="$('#form').submit()">Send</span>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
